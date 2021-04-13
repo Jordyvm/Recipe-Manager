@@ -1,0 +1,68 @@
+{% comment %} <nav class="row justify-content-center navbar navbar-expand-md navbar-light bg-light">
+  <img class="mr-2" src="/docs/4.0/assets/brand/bootstrap-solid.svg" width="30" height="30" alt="">
+  <a class="navbar-brand" href="#">Recipe Manager</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggler" aria-controls="navbarToggler" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarToggler">
+    <ul class="navbar-nav mr-1 ml-auto mt-2 mt-md-0">
+      {% url 'home' as url %}
+      <li class="nav-item {% if request.path == url %}active{% endif %}">
+        <a class="nav-link" href="{% url 'home' %}">Home</a>
+      </li>
+      {% url 'recipes' as url %}
+      <li class="nav-item {% if request.path == url %}active{% endif %}">
+        <a class="nav-link" href="{% url 'recipes' %}">Recipes</a>
+      </li>
+      {% url 'about' as url %}
+      <li class="nav-item {% if request.path == url %}active{% endif %}">
+        <a class="nav-link" href="{% url 'about' %}">About</a>
+      </li>
+    </ul>
+
+    <form class="form-inline" role="toolbar">
+        <input type="search" class="form-control" id="inputSearch" placeholder="Search">
+
+         <div class="form-inline-append">
+            <button type="submit" class="btn btn-outline-success">Search</button>
+        </div>
+    </form>
+  </div>
+</nav> {% endcomment %}
+
+
+<nav class="col justify-content-xl-center navbar navbar-expand-md navbar-light bg-light">
+    <a class="col-xl-2 col-lg-2 col-md-2 navbar-brand" href="{% url 'home' %}">
+        <i class="fas fa-utensils mr-2 text-success"></i>
+        Recipe Manager
+    </a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggler" aria-controls="navbarToggler" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="col-xl-6 col-lg-10 collapse navbar-collapse" id="navbarToggler">
+        <ul class="navbar-nav mr-1 ml-auto mt-2 mt-md-0">
+        {% url 'home' as url %}
+        <li class="nav-item {% if request.path == url %}active{% endif %}">
+            <a class="nav-link" href="{% url 'home' %}">Home</a>
+        </li>
+        {% url 'recipes' as url %}
+        <li class="nav-item {% if request.path == url %}active{% endif %}">
+            <a class="nav-link" href="{% url 'recipes' %}">Recipes</a>
+        </li>
+        {% url 'about' as url %}
+        <li class="nav-item {% if request.path == url %}active{% endif %}">
+            <a class="nav-link" href="{% url 'about' %}">About</a>
+        </li>
+        </ul>
+
+        <form class="form-inline" role="toolbar">
+            <input type="search" class="form-control" id="inputSearch" placeholder="Search">
+
+            <div class="form-inline-append">
+                <button type="submit" class="btn btn-outline-success">Search</button>
+            </div>
+        </form>
+    </div>
+</nav>
