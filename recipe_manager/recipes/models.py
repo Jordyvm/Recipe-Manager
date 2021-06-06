@@ -1,5 +1,11 @@
 from django.db import models
 
+class TimeStampedModel(models.Model):
+     created_on = models.DateTimeField(auto_now_add=True)
+
+     class Meta:
+         abstract = True
+
 class ingredient(models.Model):
     name = models.CharField(max_length = 50, unique=True)
 
@@ -18,8 +24,9 @@ class tag(models.Model):
     class Meta:
         ordering = ['name']
 
-class recipe(models.Model):
+class recipe(TimeStampedModel):
     title = models.CharField(max_length = 50, unique=True)
+    coverImage = models.ImageField(max_length = 200)
     servings = models.PositiveSmallIntegerField()
     ingredients = models.ManyToManyField(ingredient, blank=True, through='ingredientAmount')
     description = models.TextField(max_length = 500)
@@ -29,7 +36,7 @@ class recipe(models.Model):
         return self.title
     
     class Meta:
-        ordering = ['title']
+        ordering = ['-created_on']
 
 class measure(models.Model):
     name = models.CharField(max_length=50, unique=True)
@@ -45,7 +52,5 @@ class ingredientAmount(models.Model):
     measure = models.ForeignKey(measure,on_delete=models.CASCADE)
     ingredient = models.ForeignKey(ingredient, on_delete=models.CASCADE)
     recipe = models.ForeignKey(recipe, on_delete=models.CASCADE)
-
-
 
 
